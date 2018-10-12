@@ -1,5 +1,5 @@
 {
-    "name": "magento/module-msi-inventory-sample-data-venia",
+    "name": "magento/module-msi-inventory-sample-data-venia-pwa",
     "description": "N/A",
     "require": {
         "php": "~7.1.3||~7.2.0",
