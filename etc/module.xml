@@ -9,6 +9,7 @@
     <module name="Magento_MsiInventorySampleDataVeniaPwa">
         <sequence>
             <module name="Magento_CatalogSampleDataVenia" />
+            <module name="Magento_ConfigurableSampleDataVenia" />
             <module name="Magento_MsiSourceStockSampleData" />
             <module name="Magento_MsiInventorySampleData" />
         </sequence>

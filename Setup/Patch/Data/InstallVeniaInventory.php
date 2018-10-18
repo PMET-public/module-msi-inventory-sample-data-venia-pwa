@@ -10,6 +10,7 @@ use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\SampleData\Context as SampleDataContext;
 use Magento\MsiInventorySampleData\Model\InstallInventoryData as SampleData;
+use Magento\MsiInventorySampleData\Model\MoveInventoryFromDefault as MoveInventory;
 
 
 
@@ -24,30 +25,37 @@ class InstallVeniaInventory implements DataPatchInterface
      */
     protected $fixtureManager;
 
-    /** @var SampleData\  */
+    /** @var SampleData  */
     protected $sampleData;
+
+    /** @var MoveInventory  */
+    protected $moveInventory;
 
     /**
      * InstallVeniaInventory constructor.
      * @param SampleDataContext $sampleDataContext
      * @param ModuleDataSetupInterface $moduleDataSetup
      * @param SampleData $sampleData
+     * @param MoveInventory $moveInventoryFromDefault
      */
     public function __construct(
         SampleDataContext $sampleDataContext,
         ModuleDataSetupInterface $moduleDataSetup,
-        SampleData $sampleData
+        SampleData $sampleData,
+        MoveInventory $moveInventoryFromDefault
        )
     {
         $this->moduleDataSetup = $moduleDataSetup;
         $this->fixtureManager = $sampleDataContext->getFixtureManager();
         $this->sampleData = $sampleData;
+        $this->moveInventory = $moveInventoryFromDefault;
     }
 
 
     public function apply()
     {
         $this->sampleData->addInventory(['Magento_MsiInventorySampleDataVeniaPwa::fixtures/venia_msi_inventory.csv']);
+        $this->moveInventory->transfer('us_warehouse');
     }
 
     /**
