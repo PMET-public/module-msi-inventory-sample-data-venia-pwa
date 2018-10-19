@@ -1,4 +1,6 @@
-# module-msi-inventory-sample-data-venia-pwa
+# Magento_MsiInventorySampleDataVeniaPwa
+
+Sample data for Magento PWA
 
 Creates Multi Source inventory for products in the Venia Jewelry category for use in PWA sample data
 
